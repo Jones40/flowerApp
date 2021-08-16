@@ -1,7 +1,9 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FlowerController;
+
+use App\Http\Controllers\FlowersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +16,22 @@ use App\Http\Controllers\FlowerController;
 |
 */
 
+//routes linked to controllers
+
 Route::get('/', function () {
     return view('welcome');
 });
+route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('/flowers', [FlowerController::class, 'index']);
+Route::get('/flowers', [FlowersController::class, 'index']);
+
+// Show a specific flower :
+    Route::get('/flowers/{id}', [FlowersController::class, 'show']);
+
+    // Show the form :
+    Route::get('/create/flower', [FlowersController::class, 'create']);
+    
+    // Save data (using post method):
+    Route::post('/create/flower', [FlowersController::class, 'store']);
