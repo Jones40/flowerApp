@@ -1,10 +1,8 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\FlowersController;
-
+use App\Http\Controllers\FlowerController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,22 +14,31 @@ use App\Http\Controllers\FlowersController;
 |
 */
 
-//routes linked to controllers
-
 Route::get('/', function () {
     return view('welcome');
 });
-route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/flowers', [FlowersController::class, 'index']);
+/*
+    Create a route every time you need :
+        - To access a page / view
+        - To perfom an action (saving in DB; looking for something)
+*/
 
-// Show a specific flower :
-    Route::get('/flowers/{id}', [FlowersController::class, 'show']);
+Route::get('/flowers', [FlowerController::class, 'index']);
 
-    // Show the form :
-    Route::get('/create/flower', [FlowersController::class, 'create']);
-    
-    // Save data (using post method):
-    Route::post('/create/flower', [FlowersController::class, 'store']);
+// Show the form to create flowers
+Route::get('/new-flower', [FlowerController::class, 'create']);
+Route::post('/new-flower', [FlowerController::class, 'store']);
+
+// Show the form to update a  flower
+Route::get('/update/flower/{id}', [FlowerController::class, 'edit'])->name('update.flower');
+Route::post('/update/flower/{id}', [FlowerController::class, 'update']);
+
+Route::get('/delete/flower/{id}', [FlowerController::class, 'destroy'])->name('delete.flower');;
+Route::get('/show/flower/{id}', [FlowerController::class, 'show'])->name('show.flower');;
+
+
+Route::get('/post/create', [PostController::class, 'create']);
+Route::post('/post', [PostController::class, 'store']);
+
+// CREATE THE ROUTE TO DISPLAY ONE SPECIFIC FLOWER

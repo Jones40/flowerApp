@@ -11,6 +11,9 @@
 <body>
     <form action="" method="post">
         @csrf
+        <h1>Create Post</h1>
+
+
         <input type="text" name="name" placeholder="Name"><br>
 
         <input type="number" name="price" placeholder="Price"><br>
@@ -20,3 +23,4 @@
 </body>
 
 </html>
+
