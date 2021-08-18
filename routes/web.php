@@ -37,6 +37,9 @@ Route::post('/update/flower/{id}', [FlowerController::class, 'update']);
 Route::get('/delete/flower/{id}', [FlowerController::class, 'destroy'])->name('delete.flower');;
 Route::get('/show/flower/{id}', [FlowerController::class, 'show'])->name('show.flower');;
 
+Route::get('/contact', [ContactController::class, 'create']);
+Route::post('/contact', [ContactController::class, 'store']);
+
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);

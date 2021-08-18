@@ -16,12 +16,12 @@ class FlowerSeeder extends Seeder
     public function run()
     {
         //USING QUERY BUILDER
-        DB::TABLE('books')->insert([
+        DB::TABLE('flowers')->insert([
             'name' => 'Tulip',
             'price' => 3
 
         ]);
-        DB::TABLE('books')->insert([
+        DB::TABLE('flowers')->insert([
             'name' => 'Violeta',
             'price' => 4
         ]);

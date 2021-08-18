@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Flower extends Model
 {
+
     use HasFactory;
+    public $timestamps = false;
+
+    //inner join :
+    public function comments()
+    {
+        return $this->hasMany(comment::class);
+    }
 }

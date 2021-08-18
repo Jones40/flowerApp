@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+   <link rel="stylesheet" href="{{'contact_style.css'}}">
 </head>
 <body>
 
@@ -13,6 +14,7 @@
             <li><a href="">Home page</a></li>
             <li><a href="{{ url('contact') }}">Contact page</a></li>
             <li><a href="{{ url('flowers') }}">Flowers page</a></li>
+            <li><a href="{{ url('new-flower') }}">Add flowers</a></li>
         </ul>
     </nav>
 
@@ -23,6 +25,6 @@
     <footer>
         <p>This is my SPECIAL footer</p>
     </footer>
-    
+
 </body>
 </html>

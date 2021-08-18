@@ -16,5 +16,7 @@ class DatabaseSeeder extends Seeder
         //Call seeders you want to execute
 
         $this->call(FlowerSeeder::class);
+        $this->call(CommentSeeder::class);
+        $this->call(ContactSeeder::class);
     }
 }

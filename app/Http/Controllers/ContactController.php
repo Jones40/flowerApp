@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Flower;
-use Database\Seeders\FlowerSeeder;
 
-class FlowerController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Contact;
+
+class ContactController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,8 @@ class FlowerController extends Controller
      */
     public function index()
     {
-        $flowers = Flower::all();
-
-        // To display a specific view :
-        return view('flowers', ['flowers' => $flowers]);
+        $contact = contact::all();
+        return view('contact', ['contact' => $contact]);
     }
 
     /**
@@ -28,7 +26,7 @@ class FlowerController extends Controller
      */
     public function create()
     {
-        return view('new-flower');
+        return view('contact-flower');
     }
 
     /**
@@ -40,15 +38,13 @@ class FlowerController extends Controller
     public function store(Request $request)
     {
         //validate automatically return back() to previous page if errors
-        $flower = new Flower;
-        $flower->name = $request->name;
-        $flower->price = $request->price;
-        $flower->save();
+        $contact = new contact;
+        $contact->email = $request->email;
+        $contact->message = $request->message;
+        $contact->save();
 
-        // redirect to flowers list with a message
-        return redirect('flowers')->with('success', $request->name . ' was created successfully');
+        return redirect('contact')->with('success', $request->email . ' was created successfully');
     }
-
     /**
      * Display the specified resource.
      *
@@ -57,11 +53,7 @@ class FlowerController extends Controller
      */
     public function show($id)
     {
-        $flowers = Flower::find($id); // this returns an array
-        // dd($flowers->comments);
-
-        //or return view('show-flower', ['flower' =>$flower[0]]);
-        return view('details-flower', ['flower' => $flowers]);
+        //
     }
 
     /**
@@ -72,11 +64,7 @@ class FlowerController extends Controller
      */
     public function edit($id)
     {
-        // Grab the flower
-        $flowers = Flower::find($id); // this returns an array
-
-        // Show the form
-        return view('update-flower', ['flower' => $flowers]);
+        //
     }
 
     /**
@@ -88,16 +76,7 @@ class FlowerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $flowers = Flower::find($id);
-        $flowers->name = $request->name;
-        $flowers->price = $request->price;
-
-        $flowers->save();
-
-
-
-        // redirect to flowers list with a message
-        return redirect('flowers')->with('success', $request->name . ' was updated successfully');
+        //
     }
 
     /**
@@ -108,12 +87,6 @@ class FlowerController extends Controller
      */
     public function destroy($id)
     {
-        Flower::destroy($id);
-
-
-
-
-        // redirect to flowers list with a message
-        return redirect('flowers')->with('success', 'Flower deleted');
+        //
     }
 }

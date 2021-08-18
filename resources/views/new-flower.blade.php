@@ -1,6 +1,6 @@
 @extends('layouts.mytemplate')
 
-@section('title', 'Create a new flower')
+@section('title', 'Detail page')
 
 @section('content')
 
@@ -21,7 +21,7 @@
 
 
     </form>
-
+@endsection
 
 
 
