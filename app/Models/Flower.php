@@ -9,6 +9,7 @@ class Flower extends Model
 {
 
     use HasFactory;
+    //tell laravel im not using the timestamp
     public $timestamps = false;
 
     //inner join :
