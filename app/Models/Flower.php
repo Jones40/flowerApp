@@ -15,6 +15,20 @@ class Flower extends Model
     //inner join :
     public function comments()
     {
+
+
+
         return $this->hasMany(comment::class);
+    }
+    public function getPriceFormattedAttribute()
+    {
+        return $this->attributes['price'] . '€';
+    }
+
+    public function getUpdatedAttribute()
+    {
+
+        $timestamp = strtotime($this->attributes['updated_at']);
+        return date('d M Y', $timestamp);
     }
 }

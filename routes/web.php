@@ -51,3 +51,6 @@ Route::get('/api/get-flower/id={id}', [ApiController::class, 'getFlower']);
 Route::get('/api/get-flower/type={id}', [ApiController::class, 'getFlowerType']);
 
 // CREATE THE ROUTE TO DISPLAY ONE SPECIFIC FLOWER
+Route::get('/ajax-form', [FlowerController::class, 'ajaxForm'])->name('show.ajax.form');
+// When we submit the form
+Route::post('/ajax-answer', [FlowerController::class, 'ajaxAnswer'])->name('submit.ajax.form');

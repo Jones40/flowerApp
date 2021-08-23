@@ -17,12 +17,12 @@ class ApiController extends Controller
 
     public function getFlower($id)
     {
-        $flowers = Flower::where('id', '=', $id)->get();
+        $flowers = Flower::find($id);
         return $flowers->toJson(JSON_PRETTY_PRINT);
     }
-    public function getFlowersAmount($amount)
+    public function getFlowerAmount($amount)
     {
-        $flowers = Flower::limit($amount)->get();
+        $flowers = Flower::take($amount)->get();
         return $flowers->toJson(JSON_PRETTY_PRINT);
     }
     public function getFlowersType($type)

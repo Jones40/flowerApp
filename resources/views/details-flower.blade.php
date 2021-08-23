@@ -5,8 +5,8 @@
 @section('content')
     <p><strong>Name : </strong> {{$flower->name}}</p>
     <p><strong>Price : </strong> {{$flower->price}}</p>
-    <p><strong>Price : </strong> {{$flower->comments}}</p>
-    <p><strong>Price : </strong> {{$flower->type}}</p>
+    <p><strong>Comments : </strong> {{$flower->comments}}</p>
+    <p><strong>Type : </strong> {{$flower->type}}</p>
     <hr>
 <h3>comments</h3>
     @foreach($comments as $comment)

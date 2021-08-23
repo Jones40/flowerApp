@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Flower;
 use Database\Seeders\FlowerSeeder;
+use Illuminate\Support\Facades\Validator;
 
 class FlowerController extends Controller
 {
@@ -19,6 +20,10 @@ class FlowerController extends Controller
 
         // To display a specific view :
         return view('flowers', ['flowers' => $flowers]);
+    }
+    public function ajaxForm()
+    {
+        return view("ajax-form");
     }
 
     /**
@@ -117,5 +122,30 @@ class FlowerController extends Controller
 
         // redirect to flowers list with a message
         return redirect('flowers')->with('success', 'Flower deleted');
+    }
+    public function ajaxAnswer(Request $request)
+    {
+
+        $validations = Validator::make($request->all(), [
+            'name' => 'required|max:50',
+            'price' => 'required',
+            'type' => 'required|max:50',
+        ]);
+
+        // + Upload file
+        $fileName = $request->file->getClientOriginalName(); //'randomName.' . $request->file->extension();
+        $public_path = public_path('uploads');
+
+        $request->file->move($public_path, $fileName);
+        $flower = new Flower;
+        $flower->name = $request->name;
+        $flower->price = $request->price;
+        $flower->type = $request->type;
+
+        $flower->save();
+        if ($validations->fails())
+            return response()->json(['errors' => $validations->errors()->all()]);
+
+        return response()->json(['success' => 'Record is added']);
     }
 }
