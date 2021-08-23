@@ -17,8 +17,9 @@ class CreateFlowersTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
+            $table->string('type');
 
-           // $table->timestamps();
+            // $table->timestamps();
         });
     }
 

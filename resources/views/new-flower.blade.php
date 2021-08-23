@@ -16,6 +16,9 @@
         <input type="number" name="price" placeholder="Price"><br>
         @error('price')
         <div class="alert alert-danger">{{ $message }}</div>
+        <input type="number" name="price" placeholder="type"><br>
+        @error('type')
+        <div class="alert alert-danger">{{ $message }}</div>
     @enderror
         <input type="submit" value="Add flower">
 

@@ -43,6 +43,7 @@ class FlowerController extends Controller
         $flower = new Flower;
         $flower->name = $request->name;
         $flower->price = $request->price;
+        $flower->type = $request->type;
         $flower->save();
 
         // redirect to flowers list with a message
@@ -58,10 +59,11 @@ class FlowerController extends Controller
     public function show($id)
     {
         $flowers = Flower::find($id); // this returns an array
+        $comments = $flowers->comments;
         // dd($flowers->comments);
 
         //or return view('show-flower', ['flower' =>$flower[0]]);
-        return view('details-flower', ['flower' => $flowers]);
+        return view('details-flower', ['flower' => $flowers, 'comments' => $comments]);
     }
 
     /**

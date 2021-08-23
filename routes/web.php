@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FlowerController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ApiController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,5 +44,10 @@ Route::post('/contact', [ContactController::class, 'store']);
 
 Route::get('/post/create', [PostController::class, 'create']);
 Route::post('/post', [PostController::class, 'store']);
+
+Route::get('/api/get-flowers', [ApiController::class, 'getFlowers']);
+Route::get('/api/get-flower/qantity={amount}', [ApiController::class, 'getFlowersAmount']);
+Route::get('/api/get-flower/id={id}', [ApiController::class, 'getFlower']);
+Route::get('/api/get-flower/type={id}', [ApiController::class, 'getFlowerType']);
 
 // CREATE THE ROUTE TO DISPLAY ONE SPECIFIC FLOWER
