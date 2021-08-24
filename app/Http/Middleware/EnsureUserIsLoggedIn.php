@@ -16,13 +16,13 @@ class EnsureUserIsLoggedIn
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+
 
 
         // Check if password matches
-        if ($request->session()->put('username', $user->username)) {
-            return redirect('flowers'); {
-            }
+        if ($request->session()->get('username')) {
+            return redirect('flowers');
+            return $next($request);
         } else {
             return redirect()->back()->with('status', 'Username doesnt exists');
         }
