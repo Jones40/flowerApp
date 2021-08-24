@@ -54,3 +54,13 @@ Route::get('/api/get-flower/type={id}', [ApiController::class, 'getFlowerType'])
 Route::get('/ajax-form', [FlowerController::class, 'ajaxForm'])->name('show.ajax.form');
 // When we submit the form
 Route::post('/ajax-answer', [FlowerController::class, 'ajaxAnswer'])->name('submit.ajax.form');
+
+// User register form :
+Route::get('/register-flower', [UserController::class, 'create'])->name('register.form');
+// Submit register form
+Route::post('/register-flower', [UserController::class, 'store'])->name('register.insert');
+
+// User lohin form :
+Route::get('/login', [UserController::class, 'show_login'])->name('login.form');
+// Submit login form
+Route::post('/login', [UserController::class, 'login'])->name('login.');

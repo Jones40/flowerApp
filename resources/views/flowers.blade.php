@@ -4,6 +4,10 @@
 
 @section('content')
 
+@if($username=Session::get('username'))
+<p style="color:green">{{$username}}</p>
+@endif
+
     @if($message = Session::get('success'))
         <p style="color:green">{{$message}}</p>
     @endif
