@@ -1,6 +1,6 @@
 @extends('layouts.mytemplate')
 
-@section('name', 'Register form')
+@section('title', 'Register form')
 
 @section('content')
 

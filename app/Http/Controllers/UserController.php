@@ -9,6 +9,7 @@ use App\Models\CustomUser;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class UserController extends Controller
 {
     /**
